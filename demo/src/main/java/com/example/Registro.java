@@ -98,4 +98,4 @@ public class Registro {
         return contador;
     }
 }
-        
+        //listo
