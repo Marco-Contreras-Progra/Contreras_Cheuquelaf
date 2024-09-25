@@ -25,8 +25,6 @@ public class Registro {
                 """);
 
 
-
-
             do {
                 try {
                     a = new Scanner(System.in).nextInt();
@@ -37,13 +35,13 @@ public class Registro {
 
 
 
-
+        
             if(a == 1) {
                 if(hayCupo(registro)) {
                     int indiceDisponible = obtenerUltimoEspacio(registro);
                     String nombre;
                     String Estadocivil;
-                    int edad;
+                    String edad;
 
 
 
@@ -129,7 +127,7 @@ public class Registro {
 
 
 
-                for (double [] persona : registro) {
+                for (String [] persona : registro) {
                     if (persona[2] >= 60 && persona[1].equals("casado/a")) {
                         mmmm++;
                     } else if(persona[2] >= 65 && persona[1].equals("soltero/a")) {
@@ -140,7 +138,7 @@ public class Registro {
             } else if(a == 5) {
                 int c = 0;
                 int d = 0;
-                for(double[] persona : registro) {
+                for(String[] persona : registro) {
                     if(persona[1].equals("casado/a")) {
                         c++;
                     } else if(persona[1].equals("soltero/a")) {
