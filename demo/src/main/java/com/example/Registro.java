@@ -1,9 +1,10 @@
+package com.example;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Registro {
     public static void main(String[] args) {
-        String [][] registro = new double[50][3];
+        String [][] registro = new String[50][3];
         int a = -1;
 
 
@@ -39,7 +40,7 @@ public class Registro {
                     int indiceDisponible = obtenerUltimoEspacio(registro);
                     String nombre;
                     String Estadocivil;
-                    int edad;
+                    String edad;
 
 
 
@@ -96,14 +97,14 @@ public class Registro {
 
 
 
-                for (double [] persona : registro) {
-                    if (persona[2] >= 18) mayoresDeEdad++;
+                for (String[] persona : registro) {
+                    int edad = Integer.parseInt(persona[2]); 
+                    if (edad >= 18)
+                     mayoresDeEdad++;
                 }
 
-
-
-
                 System.out.println("Hay " + mayoresDeEdad + " mayores de edad.");
+                
             } else if(a == 3) {
                 int menoresDeEdad = 0;
                 int queSera = obtenerUltimoEspacio(registro);
@@ -112,20 +113,20 @@ public class Registro {
 
 
                 for (int i = 0; i < queSera; i++) {
-                    if (registro[i][2] < 18) menoresDeEdad++;
+                    int edad = Integer.parseInt(registro[i][2]);
+                    if (edad < 18) menoresDeEdad++;
                 }
-
-
-
+            
 
                 System.out.println("Hay " + menoresDeEdad + " menores de edad.");
+
             } else if(a == 4) {
                 int mmmm = 0;
 
 
 
 
-                for (double [] persona : registro) {
+                for (String [] persona : registro) {
                     if (persona[2] >= 60 && persona[1].equals("casado/a")) {
                         mmmm++;
                     } else if(persona[2] >= 65 && persona[1].equals("soltero/a")) {
@@ -158,21 +159,21 @@ public class Registro {
 
 
 
-    public static int obtenerUltimoEspacio(double [][] registro) {
+    public static int obtenerUltimoEspacio(String [][] registro) {
         return registro.length - opa(registro);
     }
 
 
 
 
-    public static boolean hayCupo(double [][] registro) {
+    public static boolean hayCupo(String [][] registro) {
         return opa(registro) != 0;
     }
 
 
 
 
-    public static int opa(double [][] registro) {
+    public static int opa(String [][] registro) {
         for(int i = 0; i < registro.length; i++) {
             if(registro[i][0].equals("")){
                 return registro.length - i;
