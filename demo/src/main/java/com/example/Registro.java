@@ -114,37 +114,33 @@ public class Registro {
 
                 for (int i = 0; i < queSera; i++) {
                     int edad = Integer.parseInt(registro[i][2]);
-                    if (edad < 18) menoresDeEdad++;
+                    if (edad < 18) 
+                    menoresDeEdad++;
                 }
             
 
                 System.out.println("Hay " + menoresDeEdad + " menores de edad.");
 
             } else if(a == 4) {
-                int mmmm = 0;
+                int catidadMayoresEdad = 0;
 
 
 
 
-                for (String [] persona : registro) {
-                    if (persona[2] >= 60 && persona[1].equals("casado/a")) {
-                        mmmm++;
-                    } else if(persona[2] >= 65 && persona[1].equals("soltero/a")) {
-                        mmmm++;
+                for (String[] persona : registro) {
+                    int edad = Integer.parseInt(persona[2]); 
+                    if (edad >= 60 && persona[1].equals("casado/a")) {
+                        catidadMayoresEdad++;
+                    } else if (edad >= 65 && persona[1].equals("soltero/a")) {
+                        catidadMayoresEdad++;
+                        
                     }
                 }
-                System.out.println("Hay " + mmmm + " personas de tercera edad");
+                
+                System.out.println("Hay " + catidadMayoresEdad + " personas de tercera edad");
             } else if(a == 5) {
                 int c = 0;
                 int d = 0;
-                for(double[] persona : registro) {
-                    if(persona[1].equals("casado/a")) {
-                        c++;
-                    } else if(persona[1].equals("soltero/a")) {
-                        d++;
-                    }
-                }
-
 
 
 
@@ -153,7 +149,7 @@ public class Registro {
             } else if(a == 6) {
                 System.out.println("Programa finalizado");
             }
-        }while (a == 6);
+        }while (a != 6);
     }
 
 
